@@ -25,8 +25,6 @@ set nonumber
 set norelativenumber
 set laststatus=2
 set history=1000
-set undofile
-set undoreload=10000
 set cpoptions+=J
 set shell=/bin/zsh
 set lazyredraw
