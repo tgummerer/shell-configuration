@@ -138,8 +138,8 @@ set statusline+=/
 set statusline+=%{&ft}                        " Type (python).
 set statusline+=)
 
-" Line and column position and counts.
-set statusline+=\ (line\ %l\/%L,\ col\ %03c)
+" Line position and counts.
+set statusline+=\ (line\ %l\/%L)
 
 " }}}
 
