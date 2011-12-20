@@ -85,6 +85,7 @@ set expandtab
 " set textwidth=80
 " set formatoptions=qrn1
 " set colorcolumn=+1
+set nowrap
 
 " }}}
 
