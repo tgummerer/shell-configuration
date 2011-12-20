@@ -3,6 +3,7 @@
 
 " Preamble {{{
 
+call pathogen#infect()
 filetype off
 filetype plugin indent on
 set nocompatible            " Enable vim features
