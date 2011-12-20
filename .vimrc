@@ -125,11 +125,16 @@ set statusline+=%w   " Preview window flag.
 
 set statusline+=\    " Space.
 
+
 "set statusline+=%#redbar#                " Highlight the following as a warning.
 "set statusline+=%{SyntasticStatuslineFlag()} " Syntastic errors.
 "set statusline+=%*                           " Reset highlighting.
 
 set statusline+=%=   " Right align.
+
+" Branch of the git repository we are currently in
+set statusline+=%{fugitive#statusline()}
+set statusline+=\    " Space.
 
 " File format, encoding and type.  Ex: "(unix/utf-8/python)"
 set statusline+=(
