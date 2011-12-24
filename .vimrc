@@ -43,6 +43,7 @@ set dictionary=/usr/share/dict/words
 set ignorecase
 set smartcase
 let g:miniBufExplMapWindowNavVim = 1
+set t_Co=256                                     " turn on 256 color mode
 " Features that were in steves .vimrc, but I don't like
 " set cursorline (Underline current line)
 
