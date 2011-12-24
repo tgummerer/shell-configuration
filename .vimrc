@@ -7,6 +7,7 @@ call pathogen#infect()
 filetype off
 filetype plugin indent on
 set nocompatible            " Enable vim features
+set ofu=syntaxcomplete#Complete
 
 " }}}
 
