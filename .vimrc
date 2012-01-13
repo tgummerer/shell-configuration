@@ -55,6 +55,12 @@ set showmatch                                   " Shows the matching parentheses
 
 " }}}
 
+" Supertab {{{
+
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabLongestHighlight = 1
+
+"}}}
 
 " Wildmenu completion {{{
 
