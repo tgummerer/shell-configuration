@@ -43,8 +43,13 @@ set title
 set dictionary=/usr/share/dict/words
 set ignorecase
 set smartcase
-let g:miniBufExplMapWindowNavVim = 1
-set t_Co=256                                     " turn on 256 color mode
+set t_Co=256                                    " turn on 256 color mode
+set incsearch
+set hlsearch
+set mouse=a                                     " Mouse, just if needed
+set showcmd
+set completeopt=longest,menuone,preview         " Easier completion
+set showmatch                                   " Shows the matching parentheses when you type a closing or opening parentheses
 " Features that were in steves .vimrc, but I don't like
 " set cursorline (Underline current line)
 
@@ -102,7 +107,7 @@ set noswapfile
 
 syntax on
 set background=dark
-colorscheme molokai
+colorscheme wombat256
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -189,25 +194,6 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 nnoremap <leader>! :Shell 
 
 " }}}
-
-"Mouse
-set mouse=a
-
-" This shows what you are typing as a command.
-set showcmd
-
-" Better Completion
-set completeopt=longest,menuone,preview
-
-" Shows the matching parentheses when you type a closing or opening parentheses
-set showmatch
-
-" Show status line in each window
-set ruler
-
-" Incremental search, searches as you enter the search term
-set incsearch
-set hlsearch
 
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
