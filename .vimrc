@@ -59,6 +59,8 @@ set showmatch                                   " Shows the matching parentheses
 
 let g:Powerline_symbols = "fancy"
 
+" }}}
+
 " Supertab {{{
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
