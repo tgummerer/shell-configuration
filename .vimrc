@@ -49,7 +49,8 @@ set hlsearch
 set mouse=a                                     " Mouse, just if needed
 set showcmd
 set completeopt=longest,menuone,preview         " Easier completion
-set showmatch                                   " Shows the matching parentheses when you type a closing or opening parentheses
+set showmatch                                   " Shows the matching parentheses 
+" when you type a closing or opening parentheses
 " Features that were in steves .vimrc, but I don't like
 " set cursorline (Underline current line)
 
@@ -114,10 +115,10 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 " No automatic wrapping, I have a big screen
-" set wrap
-" set textwidth=80
-" set formatoptions=qrn1
-" set colorcolumn=+1
+set wrap
+set textwidth=80
+set formatoptions=qrn1
+set colorcolumn=+1
 
 " }}}
 
@@ -133,6 +134,7 @@ set noswapfile
 syntax on
 set background=dark
 colorscheme wombat256
+highlight ColorColumn ctermbg=8
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -158,7 +160,7 @@ set statusline+=%w   " Preview window flag.
 set statusline+=\    " Space.
 
 
-"set statusline+=%#redbar#                " Highlight the following as a warning.
+"set statusline+=%#redbar#               " Highlight the following as a warning.
 "set statusline+=%{SyntasticStatuslineFlag()} " Syntastic errors.
 "set statusline+=%*                           " Reset highlighting.
 
