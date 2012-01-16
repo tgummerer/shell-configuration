@@ -55,6 +55,19 @@ set showmatch                                   " Shows the matching parentheses
 
 " }}}
 
+" Line return {{{
+" Make sure Vim returns to the same line when you reopen a file.
+" Thanks, Amit
+augroup line_return
+    au!
+    au BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \     execute 'normal! g`"zvzz' |
+                \ endif
+augroup END
+
+" }}}
+
 " Powerline {{{
 
 let g:Powerline_symbols = "fancy"
