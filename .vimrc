@@ -78,7 +78,7 @@ let g:Powerline_symbols = "fancy"
 " Supertab {{{
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabLongestHighlight = 1
+"let g:SuperTabLongestHighlight = 1
 
 "}}}
 
@@ -115,10 +115,10 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 " No automatic wrapping, I have a big screen
-set wrap
-set textwidth=80
-set formatoptions=qrn1
-set colorcolumn=+1
+"set wrap
+"set textwidth=80
+"set formatoptions=qrn1
+"set colorcolumn=+1
 
 " }}}
 
@@ -138,8 +138,6 @@ highlight ColorColumn ctermbg=8
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" }}}
 
 " }}}
 
@@ -193,6 +191,7 @@ nnoremap ; :
 nnoremap : ;
 " Space will toggle folds!
 nnoremap <space> za
+vnoremap <space> zf
 " Up and down are more logical with g..
 nnoremap <silent> k gk
 nnoremap <silent> j gj
