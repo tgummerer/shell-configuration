@@ -111,6 +111,8 @@ au VimResized * exe "normal! \<c-w>="
 
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
+
+inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 " }}}
 
 " Tabs, spaces, wrapping {{{
