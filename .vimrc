@@ -113,6 +113,14 @@ au VimResized * exe "normal! \<c-w>="
 cmap w!! w !sudo tee % >/dev/null
 
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+
+" Leader {{{
+
+let mapleader = ","
+let maplocalleader = "\\"
+
+" }}}
+
 " }}}
 
 " Tabs, spaces, wrapping {{{
