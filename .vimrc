@@ -102,11 +102,16 @@ set wildignore+=*.pyc                            " Python byte code
 
 " }}}
 
+" Handy stuff {{{
 " Save when losing focus
 au FocusLost * :wa
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+" }}}
 
 " Tabs, spaces, wrapping {{{
 
@@ -189,14 +194,22 @@ nnoremap <silent> zk O<Esc>
 " Swap ; and :  Convenient.
 nnoremap ; :
 nnoremap : ;
-" Space will toggle folds!
-nnoremap <space> za
-vnoremap <space> zf
 " Up and down are more logical with g..
 nnoremap <silent> k gk
 nnoremap <silent> j gj
 " Maybe worth a try? remapping jj to <ESC>
 inoremap jj <Esc>
+
+" }}}
+
+" Folds {{{
+" Space will toggle folds!
+nnoremap <space> za
+vnoremap <space> zf
+
+" Save folds for next time
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 
 " }}}
 
@@ -221,5 +234,3 @@ nnoremap <leader>! :Shell
 
 " }}}
 
-" For when you forget to sudo.. Really Write the file.
-cmap w!! w !sudo tee % >/dev/null
