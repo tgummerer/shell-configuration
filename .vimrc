@@ -1,5 +1,5 @@
 " .vimrc
-" Inspiration again by Steve Losh (He is my new command line hero)
+" Inspiration again by Steve Losh (He is my new command line hero) 
 
 " Preamble {{{
 
@@ -119,6 +119,14 @@ inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 let mapleader = ","
 let maplocalleader = "\\"
 
+" }}}
+
+" Show trailing whitespace {{{
+augroup trailing
+    au!
+    au InsertEnter * :set listchars-=trail:⌴
+    au InsertLeave * :set listchars+=trail:⌴
+augroup END
 " }}}
 
 " }}}
