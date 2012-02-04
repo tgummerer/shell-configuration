@@ -156,7 +156,7 @@ set noswapfile
 
 syntax on
 set background=dark
-colorscheme badwolf
+colorscheme molokai
 highlight ColorColumn ctermbg=8
 
 " Highlight VCS conflict markers
