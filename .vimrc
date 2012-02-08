@@ -218,6 +218,12 @@ nnoremap <silent> j gj
 " Maybe worth a try? remapping jj to <ESC>
 inoremap jj <Esc>
 
+" Move with usual keys in insert mode by pressing ctrl
+inoremap <C-l> <C-o>l
+inoremap <C-h> <C-o>h
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+
 " }}}
 
 " Folds {{{
