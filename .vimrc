@@ -11,6 +11,14 @@ set ofu=syntaxcomplete#Complete
 
 " }}}
 
+" Leader {{{
+" Map it at the beginning, otherwise it might not work for some commands
+
+let mapleader = ","
+let maplocalleader = "\\"
+
+" }}}
+
 " Basic options {{{
 " Just copy and pasted here, better find out what's going on
 set encoding=utf-8
@@ -115,16 +123,17 @@ cmap w!! w !sudo tee % >/dev/null
 
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 
-" Easy file editing {{{
+" Abbreviations {{{
 
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+iabbrev @@ info@tgummerer.com
+iabbrev ccopy Copyright &copy; 2012 Thomas Gummerer. All rights reserved.
 
 " }}}
 
-" Leader {{{
+" Easy file editing and sourcing {{{
 
-let mapleader = ","
-let maplocalleader = "\\"
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " }}}
 
