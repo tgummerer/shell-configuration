@@ -115,6 +115,12 @@ cmap w!! w !sudo tee % >/dev/null
 
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 
+" Easy file editing {{{
+
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" }}}
+
 " Leader {{{
 
 let mapleader = ","
