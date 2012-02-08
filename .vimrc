@@ -50,6 +50,7 @@ set mouse=a                                     " Mouse, just if needed
 set showcmd
 set completeopt=longest,menuone,preview         " Easier completion
 set showmatch                                   " Shows the matching parentheses 
+set number                                      " Show line numbers. Looks good with badwolf
 " when you type a closing or opening parentheses
 " Features that were in steves .vimrc, but I don't like
 " set cursorline (Underline current line)
