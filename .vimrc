@@ -231,8 +231,8 @@ nnoremap : ;
 " Up and down are more logical with g..
 nnoremap <silent> k gk
 nnoremap <silent> j gj
-" Maybe worth a try? remapping jj to <ESC>
-inoremap jj <Esc>
+" Easier escaping
+inoremap jk <Esc>
 
 " Move with usual keys in insert mode by pressing ctrl
 inoremap <C-l> <C-o>l
