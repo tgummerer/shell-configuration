@@ -145,6 +145,15 @@ augroup trailing
 augroup END
 " }}}
 
+" Highlight words in a specific color {{{
+"nnoremap <silent> <leader>h1 :execute 'match W1 /\<<c-r><c-w>\>/'<cr>
+
+"hi W1 guibg=#aeee00 guifg=#000000 ctermbg=154 ctermfg=16
+
+" Clear the matches
+"nnoremap <silent> <leader><space> :noh<cr>:call clearmatches()<cr>
+" }}}
+
 " }}}
 
 " Tabs, spaces, wrapping {{{
@@ -155,15 +164,16 @@ set softtabstop=4
 set expandtab
 " No automatic wrapping, I have a big screen
 "set wrap
-"set textwidth=80
-"set formatoptions=qrn1
-"set colorcolumn=+1
+set textwidth=80
+set formatoptions=qrn1
+set colorcolumn=+1
 
 " }}}
 
 " Backups {{{
 
 set nobackup
+set nowritebackup
 set noswapfile
 
 " }}}
@@ -182,42 +192,42 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Status line {{{
 
-augroup ft_statuslinecolor
-    au!
+" augroup ft_statuslinecolor
+"     au!
 
-    au InsertEnter * hi StatusLine ctermfg=196 guifg=#FF3145
-    au InsertLeave * hi StatusLine ctermfg=130 guifg=#CD5907
-augroup END
+"     au InsertEnter * hi StatusLine ctermfg=196 guifg=#FF3145
+"     au InsertLeave * hi StatusLine ctermfg=130 guifg=#CD5907
+" augroup END
 
-set statusline=%f    " Path.
-set statusline+=%m   " Modified flag.
-set statusline+=%r   " Readonly flag.
-set statusline+=%w   " Preview window flag.
+" set statusline=%f    " Path.
+" set statusline+=%m   " Modified flag.
+" set statusline+=%r   " Readonly flag.
+" set statusline+=%w   " Preview window flag.
 
-set statusline+=\    " Space.
+" set statusline+=\    " Space.
 
 
-"set statusline+=%#redbar#               " Highlight the following as a warning.
-"set statusline+=%{SyntasticStatuslineFlag()} " Syntastic errors.
-"set statusline+=%*                           " Reset highlighting.
+" "set statusline+=%#redbar#               " Highlight the following as a warning.
+" "set statusline+=%{SyntasticStatuslineFlag()} " Syntastic errors.
+" "set statusline+=%*                           " Reset highlighting.
 
-set statusline+=%=   " Right align.
+" set statusline+=%=   " Right align.
 
-" Branch of the git repository we are currently in
-set statusline+=%{fugitive#statusline()}
-set statusline+=\    " Space.
+" " Branch of the git repository we are currently in
+" set statusline+=%{fugitive#statusline()}
+" set statusline+=\    " Space.
 
-" File format, encoding and type.  Ex: "(unix/utf-8/python)"
-set statusline+=(
-set statusline+=%{&ff}                        " Format (unix/DOS).
-set statusline+=/
-set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
-set statusline+=/
-set statusline+=%{&ft}                        " Type (python).
-set statusline+=)
+" " File format, encoding and type.  Ex: "(unix/utf-8/python)"
+" set statusline+=(
+" set statusline+=%{&ff}                        " Format (unix/DOS).
+" set statusline+=/
+" set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
+" set statusline+=/
+" set statusline+=%{&ft}                        " Type (python).
+" set statusline+=)
 
-" Line position and counts.
-set statusline+=\ (line\ %l\/%L)
+" " Line position and counts.
+" set statusline+=\ (line\ %l\/%L)
 
 " }}}
 

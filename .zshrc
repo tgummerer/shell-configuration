@@ -8,7 +8,7 @@ ZSH=~/lib/oh-my-zsh
 export ZSH_THEME="tgummerer"
 
 # Set Path
-PATH=~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
+PATH=/opt/local/bin:~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
