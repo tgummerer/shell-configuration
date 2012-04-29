@@ -10,6 +10,9 @@ export ZSH_THEME="tgummerer"
 # Set Path
 PATH=/sw/bin:/opt/local/bin:~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
 
+# Aliases
+alias t='python ~/lib/shell-configuration/tools/t/t.py --task-dir ~/tasks --list tasks'
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
