@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/vim-orgmode"]
 	path = .vim/bundle/vim-orgmode
 	url = https://github.com/jceb/vim-orgmode.git
+[submodule ".vim/bundle/vim-cute-python"]
+	path = .vim/bundle/vim-cute-python
+	url = https://github.com/ehamberg/vim-cute-python.git
