@@ -235,9 +235,10 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Create Blank Newlines and stay in Normal mode
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
-" Swap ; and :  Convenient.
+" Map ; to : Convenient.
+" Don't do it the other way round, since I never use ; and it may conflict with
+" some plugins
 nnoremap ; :
-nnoremap : ;
 " Up and down are more logical with g..
 nnoremap <silent> k gk
 nnoremap <silent> j gj
