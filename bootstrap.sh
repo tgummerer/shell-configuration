@@ -14,8 +14,12 @@ rm ~/.tmux.conf
 rm ~/.bashrc
 rm ~/.bash_profile
 rm ~/.gitconfig
+rm ~/.muttrc
+rm -r ~/.mutt
 ln -s ~/lib/shell-configuration/.gitconfig ~/.gitconfig
 ln -s ~/lib/shell-configuration/.vim ~/.vim
 ln -s ~/lib/shell-configuration/.vimrc ~/.vimrc
 ln -s ~/lib/shell-configuration/.tmux.conf ~/.tmux.conf
 ln -s ~/lib/shell-configuration/.zshrc ~/.zshrc
+ln -s ~/lib/shell-configuration/.muttrc ~/.muttrc
+ln -s ~/lib/shell-configuration/.mutt ~/.mutt
