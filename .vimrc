@@ -161,9 +161,9 @@ augroup END
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
-" No automatic wrapping, I have a big screen
-"set wrap
+set noexpandtab
+
+set wrap
 set textwidth=80
 set formatoptions=qrn1
 set colorcolumn=+1
