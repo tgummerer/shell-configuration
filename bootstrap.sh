@@ -23,3 +23,4 @@ ln -s ~/lib/shell-configuration/.tmux.conf ~/.tmux.conf
 ln -s ~/lib/shell-configuration/.zshrc ~/.zshrc
 ln -s ~/lib/shell-configuration/.muttrc ~/.muttrc
 ln -s ~/lib/shell-configuration/.mutt ~/.mutt
+ln -s ~/lib/shell-configuration/.config ~/.config
