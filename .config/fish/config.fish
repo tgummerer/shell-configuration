@@ -1,4 +1,3 @@
-set PATH /usr/local/bin /usr/bin /bin $PATH
 set PATH "$HOME/lib/shell-configuration/bin" $PATH
 # Environment variables {{{
 
@@ -7,12 +6,22 @@ set BROWSER open
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
 
+set -g -x COMMAND_MODE unix2003
+
 alias g git
 alias gl "git log --oneline --graph"
 alias gs "git status -s"
 alias gc "git commit"
 alias gm "git commit -m"
 alias ga "git add -p"
+
+# }}}
+
+# Z {{{
+
+. ~/src/z-fish/z.fish
+
+alias j 'z'
 
 # }}}
 
@@ -45,6 +54,8 @@ end
 function fish_prompt
     set last_status $status
 
+    z --add "$PWD"
+
     set_color magenta
     printf '%s' (whoami)
     set_color normal
@@ -74,3 +85,17 @@ function fish_prompt
 end
 
 # }}}
+
+
+# Local Settings {{{
+
+if test -s $HOME/.config/fish/local.fish
+    source $HOME/.config/fish/local.fish
+end
+
+#normal }}}
+
+if status --is-interactive
+	command fortune -s | cowsay -n
+end
+
