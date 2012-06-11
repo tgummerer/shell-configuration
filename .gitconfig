@@ -2,23 +2,69 @@
 	name = tgummerer
 	email = t.gummerer@gmail.com
 
+[core]
+	pager = cat
+	editor = vim
+	excludesfile = /Users/sjl/.gitignore
+
+[alias]
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+
+	root = rev-parse --show-toplevel
+
+	graft = cherry-pick -x
+
+	l   = log -18 --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset'
+	ll  = log     --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset'
+	gl  = log -12 --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %s %C(black bold)(by %an)%Creset%C(yellow bold)%d%Creset%n'
+	gll = log     --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %s %C(black bold)(by %an)%Creset%C(yellow bold)%d%Creset%n'
+
+	ci = commit
+	cm = commit -m
+
+	d = diff
+	di = diff --cached
+
+	co = checkout
+	id = rev-parse
+
+	unstage = reset HEAD
+	uns = reset HEAD
+
+	currentbranch = !git branch --contains HEAD | grep '*' | tr -s ' ' | cut -d ' ' -f2
+
+	fo = fetch origin
+	fu = fetch upstream
+
+	po = push origin
+	; lo = pull origin
+
+[push]
+	default = current
+
 [color]
-    branch = auto
-    diff = auto
-    status = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
 
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
 
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[web]
+	browser = open

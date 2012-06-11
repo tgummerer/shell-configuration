@@ -1,9 +1,18 @@
+set PATH /usr/local/bin /usr/bin /bin $PATH
+set PATH "$HOME/lib/shell-configuration/bin" $PATH
 # Environment variables {{{
 
 set BROWSER open
 
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
+
+alias g git
+alias gl "git log --oneline --graph"
+alias gs "git status -s"
+alias gc "git commit"
+alias gm "git commit -m"
+alias ga "git add -p"
 
 # }}}
 

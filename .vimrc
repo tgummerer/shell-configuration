@@ -116,16 +116,13 @@ function! Update_tags()
     unlet _f_
     unlet _resp
 endfunction
-autocmd BufWrite *.cpp,*.h,*.c call Update_tags()
-nnoremap <leader>u Update_tags()
-set tags+=~/.vim/systags
-set tags+=./tags;/
+nnoremap <leader>u call Update_tags()
 " }}}
 
 " Supertab {{{
 
 "let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 "let g:SuperTabLongestHighlight = 1
 
 "}}}
@@ -221,7 +218,7 @@ set noswapfile
 
 syntax on
 set background=dark
-colorscheme badwolf
+colorscheme molokai
 highlight ColorColumn ctermbg=8
 
 " Highlight VCS conflict markers
