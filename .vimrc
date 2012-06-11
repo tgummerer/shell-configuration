@@ -7,7 +7,7 @@ call pathogen#infect()
 filetype off
 filetype plugin indent on
 set nocompatible            " Enable vim features
-set ofu=syntaxcomplete#Complete
+"set ofu=syntaxcomplete#Complete
 
 " }}}
 
@@ -65,6 +65,17 @@ set number                                      " Show line numbers. Looks good 
 
 " }}}
 
+" Auto commands {{{
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType cpp set omnifunc=omni#cpp#complete#Main
+" }}}
+
 " Line return {{{
 " Make sure Vim returns to the same line when you reopen a file.
 " Thanks, Amit
@@ -84,9 +95,37 @@ let g:Powerline_symbols = "fancy"
 
 " }}}
 
+" Omni completion {{{
+"set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+set completeopt=menuone,menu,longest
+" }}}
+
+" Update ctags {{{
+function! Update_tags()
+    let _f_ = expand("%:p")
+    let _cmd_ = '"ctags -a -f ./tags --c++-kinds=+p --fields=+iaS --extra=+q " ' . '"' . _f_ . '"'
+    let _resp = system(_cmd_)
+    unlet _cmd_
+    unlet _f_
+    unlet _resp
+endfunction
+autocmd BufWrite *.cpp,*.h,*.c call Update_tags()
+nnoremap <leader>u Update_tags()
+set tags+=~/.vim/systags
+set tags+=./tags;/
+" }}}
+
 " Supertab {{{
 
-let g:SuperTabDefaultCompletionType = "<c-n>"
+"let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 "let g:SuperTabLongestHighlight = 1
 
 "}}}
