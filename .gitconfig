@@ -3,9 +3,7 @@
 	email = t.gummerer@gmail.com
 
 [core]
-	pager = cat
 	editor = vim
-	excludesfile = /Users/sjl/.gitignore
 
 [alias]
 	tags = tag -l
