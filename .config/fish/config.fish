@@ -74,8 +74,8 @@ function fish_prompt
     git_prompt
 
     if test $last_status -eq 0
-        set_color white -o
-        printf ' ><((°> '
+        set_color normal
+	printf ' ><((°> '
     else
         set_color red -o
         printf ' [%d] ><((ˣ> ' $last_status
@@ -96,6 +96,6 @@ end
 #normal }}}
 
 if status --is-interactive
-	command fortune -s | cowsay -n
+	command fortune -s | cowsay
 end
 
