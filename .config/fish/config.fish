@@ -2,6 +2,8 @@ set PATH "$HOME/lib/shell-configuration/bin" $PATH
 # Environment variables {{{
 
 set BROWSER open
+# set -x LANG en_US.utf8
+# set -x LC_ALL en_US.utf8
 
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
@@ -14,6 +16,9 @@ alias gs "git status -s"
 alias gc "git commit"
 alias gm "git commit -m"
 alias ga "git add -p"
+
+alias m "make -j4"
+alias mt "make -j4 test"
 
 # }}}
 
@@ -44,7 +49,7 @@ function git_prompt
         set_color normal
         printf ' on '
         set_color magenta
-        printf '%s' (git currentbranch ^/dev/null)
+	printf (git currentbranch ^/dev/null)
         set_color green
         git_prompt_status
         set_color normal
@@ -53,8 +58,6 @@ end
 
 function fish_prompt
     set last_status $status
-
-    z --add "$PWD"
 
     set_color magenta
     printf '%s' (whoami)

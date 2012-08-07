@@ -61,3 +61,6 @@
 
 [web]
 	browser = open
+
+[interactive]
+	singlekey = true
