@@ -14,6 +14,8 @@ alias gs "git status -s"
 alias gc "git commit"
 alias gm "git commit -m"
 alias ga "git add -p"
+alias m "make -j6"
+alias mt "make -j6 test"
 
 # }}}
 
@@ -53,8 +55,6 @@ end
 
 function fish_prompt
     set last_status $status
-
-    z --add "$PWD"
 
     set_color magenta
     printf '%s' (whoami)
