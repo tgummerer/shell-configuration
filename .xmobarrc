@@ -1,0 +1,23 @@
+Config {
+    font = "xft:Consolas-10:style=bold"
+    bgColor = "black",
+    fgColor = "lightskyblue",
+    position = Top,
+    commands = [
+        Run Cpu ["-L","15","-H","50","--normal","aquamarine2","--high","chocolate1"] 10,
+	Run CpuFreq ["-t", "<cpu0>"] 10,
+        Run Memory ["-t","Mem: <usedratio>%","-H","4096","-L","0","-h","chocolate1","-n","aquamarine2"] 10,
+        Run Swap ["-t","Swap: <usedratio>%","-H","1024","-L","0","-h","chocolate1","-n","aquamarine2"] 10,
+        Run Network "eth0" ["-H","50","-L","0","--normal","aquamarine2","--high","chocolate1"] 10,
+        Run Network "wlan0" ["-H","50","-L","0","--normal","aquamarine2","--high","chocolate1"] 10,
+	Run Date "%a %b %_d %Y" "date" 360 ,
+	Run Date "%H:%M:%S" "time" 10 ,
+        Run Date "%a %b %_d %l:%M" "date" 10,
+	Run Com "$HOME/.bin/wireless.sh" [] "wifi" 30,
+	Run Com "$HOME/.bin/sound.sh" [] "sound" 30,
+        Run StdinReader
+    ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = "%StdinReader% }{[%cpu% @ %cpufreq%] [%memory%] [%swap%] [%eth0%] [%wlan0%] [%wifi%] [%sound%] <fc=DarkSlateGray3>[ %date% ]</fc><fc=aquamarine2,black>[ %time% ]</fc>    "
+}
