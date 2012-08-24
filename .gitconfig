@@ -32,6 +32,7 @@
 	fu = fetch upstream
 
 	po = push origin
+	lg = log --graph --pretty=format:'%Cred%h%Creset \n              -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit \n              --date=relative
 	; lo = pull origin
 
 [push]
@@ -61,3 +62,6 @@
 
 [web]
 	browser = open
+
+[interactive]
+	singlekey = true
