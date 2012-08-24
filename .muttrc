@@ -123,10 +123,12 @@ macro index <esc>f     ":set date_format = \"%m/%d\"<enter>"                    
 macro index <esc>F     ":set date_format = \"%m/%d at %I:%M %P\"<enter>"               "long date format"
 
 # mailbox
-macro index \m "<change-folder>+t.gummerer-gmail.com/INBOX<enter>"
-macro index \x "<change-folder>+t.gummerer-gmail.com/git<enter>"
-macro index \l "<change-folder>+littlegeniuz-gmail.com/INBOX<enter>"
-macro index \i "<change-folder>+info-tgummerer.com/INBOX<enter>"
+macro index ot "<change-folder>+t.gummerer-gmail.com/INBOX<enter>"
+macro index og "<change-folder>+t.gummerer-gmail.com/git<enter>"
+macro index ol "<change-folder>+littlegeniuz-gmail.com/INBOX<enter>"
+macro index oi "<change-folder>+info-tgummerer.com/INBOX<enter>"
 
 # save a decoded copy in ~
 macro index,pager P   "<pipe-message>cat > ~/Desktop/"    "save message as"
+
+fcc-hook git@vger.kernel.org$ +git

@@ -1,5 +1,5 @@
 set from      = "t.gummerer@gmail.com"
-set sendmail  = "/usr/local/bin/msmtp -a tgummerer"
+set sendmail  = "/usr/bin/msmtp -a tgummerer"
 set mbox      = "+t.gummerer-gmail.com/archive"
 unset record
 set postponed = "+t.gummerer-gmail.com/drafts"
