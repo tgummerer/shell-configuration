@@ -28,3 +28,6 @@
 [submodule ".xmonad"]
 	path = .xmonad
 	url = https://github.com/vicfryzel/xmonad-config.git
+[submodule "badwolf"]
+	path = badwolf
+	url = https://github.com/sjl/badwolf.git
