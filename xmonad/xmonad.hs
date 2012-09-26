@@ -26,7 +26,7 @@ import XMonad.Util.EZConfig
 import XMonad.Actions.Warp
 import Data.Ratio
  
-myTerminal      = "urxvt"
+myTerminal      = "gnome-terminal"
 myScreenLock    = "/usr/bin/gnome-screensaver-command -l"
 myBorderWidth   = 1
 myModMask       = mod4Mask
@@ -54,10 +54,8 @@ oxyXPConfig = defaultXPConfig { font              = "xft:Consolas-12"
                               , defaultText       = []
                               }
  
-myLayout = avoidStrutsOn[U] $ tabs
-           ||| tiled
-           ||| Mirror tiled
-           ||| magnify Grid
+myLayout = avoidStrutsOn[U] $ tiled
+           ||| tabs
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = ResizableTall nmaster delta ratio []
@@ -140,7 +138,7 @@ shorten n xs | length xs < n = xs
     end = "…"
  
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = Falxe
+myFocusFollowsMouse = False
  
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
