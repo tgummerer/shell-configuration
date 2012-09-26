@@ -19,5 +19,5 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{[%cpu% @ %cpufreq%] [%memory%] [%swap%] [%eth0%] [%wlan0%] [%wifi%] [%sound%] <fc=DarkSlateGray3>[ %date% ]</fc><fc=aquamarine2,black>[ %time% ]</fc>    "
+    template = "%StdinReader% }{[%cpu% @ %cpufreq%] [%memory%] [%swap%] [%eth0%] [%wlan0%] [%wifi%] [%sound%] <fc=DarkSlateGray3>[ %date% ]</fc>   "
 }
