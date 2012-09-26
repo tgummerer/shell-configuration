@@ -18,6 +18,9 @@ alias ga "git add -p"
 alias m "make -j6"
 alias mt "make -j6 test"
 
+alias m "make -j4"
+alias mt "make -j4 test"
+
 # }}}
 
 # Z {{{
@@ -47,7 +50,7 @@ function git_prompt
         set_color normal
         printf ' on '
         set_color magenta
-        printf '%s' (git currentbranch ^/dev/null)
+	printf (git currentbranch ^/dev/null)
         set_color green
         git_prompt_status
         set_color normal
