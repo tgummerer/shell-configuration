@@ -1,5 +1,5 @@
 Config {
-    font = "xft:Consolas-10:style=bold"
+    font = "xft:DejaVu Sans Mono Bold:size=10:antialias=true",
     bgColor = "black",
     fgColor = "lightskyblue",
     position = Top,
@@ -15,9 +15,10 @@ Config {
         Run Date "%a %b %_d %l:%M" "date" 10,
 	Run Com "$HOME/.bin/wireless.sh" [] "wifi" 30,
 	Run Com "$HOME/.bin/sound.sh" [] "sound" 30,
+	Run Com "$HOME/.bin/mail.sh" [] "mail" 30,
         Run StdinReader
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{[%cpu% @ %cpufreq%] [%memory%] [%swap%] [%eth0%] [%wlan0%] [%wifi%] [%sound%] <fc=DarkSlateGray3>[ %date% ]</fc>   "
+    template = "%StdinReader% }{[%cpu% @ %cpufreq%] [%memory%] [%swap%] [%eth0%] [%wlan0%] [%wifi%] [%sound%] [%mail%] <fc=DarkSlateGray3>[ %date% ]</fc>   "
 }

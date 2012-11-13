@@ -144,6 +144,7 @@ set wildignore+=*.pyc                            " Python byte code
 
 " }}}
 
+
 " Handy stuff {{{
 " Save when losing focus
 au FocusLost * :wa
@@ -223,7 +224,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " }}}
 
-" Remaps {{{
+" Remaps and make stuff work with colemak {{{
 " Create Blank Newlines and stay in Normal mode
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
@@ -232,10 +233,23 @@ nnoremap <silent> zk O<Esc>
 " some plugins
 nnoremap ; :
 " Up and down are more logical with g..
-nnoremap <silent> k gk
-nnoremap <silent> j gj
+nnoremap <silent> e gk
+nnoremap <silent> n gj
+nnoremap <silent> i l
+nnoremap <silent> u i
+nnoremap <silent> l u
+nnoremap <silent> j e
+nnoremap <silent> k n
+nnoremap <C-w>n <C-w>j
+nnoremap <C-w>e <C-w>k
+nnoremap <C-w>i <C-w>l
+
+vnoremap <silent> n j
+vnoremap <silent> e k
+vnoremap <silent> i l
+vnoremap <silent> j e
 " Easier escaping
-inoremap jk <Esc>
+inoremap ne <Esc>
 
 " Move with usual keys in insert mode by pressing ctrl
 inoremap <C-l> <C-o>l

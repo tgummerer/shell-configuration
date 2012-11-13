@@ -1,5 +1,7 @@
 # directories and commands
+set folder		= ~/.mail
 set alias_file          = ~/.mutt/alias                         # alias file
+set header_cache	= ~/.mutt/cache/headers
 set mailcap_path        = ~/.mutt/mailcap                       # entrys for filetypes
 set signature           = ~/.mutt/sig                           # my signature file
 set tmpdir              = ~/.mutt/temp                          # where to keep temp files
@@ -12,9 +14,9 @@ bind editor <Tab> complete-query
 bind editor ^T    complete
 
 # main options
+set wait_key		= no
 set mbox_type           = Maildir                               # mailbox type
-set folder              = ~/.mail                               # mailbox location
-set spoolfile           = "+info-tgummerer.com/INBOX"                    # GMail is default inbox
+set spoolfile           = "+t.gummerer-gmail.com/INBOX"                    # GMail is default inbox
 set timeout             = 3                                     # idle time before scanning
 set mail_check          = 0                                     # minimum time between scans
 set sort_alias          = alias                                 # sort alias file by alias
@@ -27,7 +29,6 @@ unset mark_old                                                  # read/new is go
 set beep_new                                                    # bell on new mails
 set pipe_decode                                                 # strip headers and eval mimes when piping
 set thorough_search                                             # strip headers and eval mimes before searching
-set header_cache='~/.mutt/hcache'                               # Cache the headers, should speed things up
 
 # index options
 set sort                = threads                               # like gmail
@@ -80,7 +81,16 @@ set forward_quote                                               # include messag
 #hdr_order from: to: cc: date: subject:                          # and in this order
 
 # boxes
-mailboxes +info-tgummerer.com/INBOX +t.gummerer-gmail.com/INBOX +t.gummerer-gmail.com/git +littlegeniuz-gmail.com/INBOX
+mailboxes +info-tgummerer.com/INBOX \
+	  +t.gummerer-gmail.com/INBOX \
+	  +t.gummerer-gmail.com/git \
+	  +t.gummerer-gmail.com/sent \
+	  +t.gummerer-gmail.com/drafts \
+	  +littlegeniuz-gmail.com/INBOX \
+	  +temporary/search
+
+set mbox = "+t.gummerer-gmail.com/archive"
+set postponed = "+t.gummerer-gmail.com/drafts"
 
 # always sourced
 #source $alias_file                                             # required for functionality
@@ -99,8 +109,10 @@ bind index w        noop
 # bindings
 bind index <tab>    sync-mailbox
 bind pager /        search
-bind pager k        previous-line
-bind pager j        next-line
+bind pager e        previous-line
+bind pager n        next-line
+bind index e        previous-entry
+bind index n        next-entry
 bind pager gg       top
 bind pager G        bottom
 bind pager w        set-flag
@@ -108,8 +120,9 @@ bind index w        set-flag
 bind index gg       first-entry
 bind index G        last-entry
 bind index,pager R  group-reply
-bind index \Cp      recall-message
+bind index p      recall-message
 bind index <space>  collapse-thread
+bind compose p postpone-message
 
 # macros
 macro index       \Cr   "<tag-prefix><clear-flag>N"                                          "mark tagged messages as read"
@@ -121,6 +134,7 @@ macro index,pager o     "|mvim -c 'setlocal ft=mail' -c 'setlocal buftype=nofile
 
 macro index <esc>f     ":set date_format = \"%m/%d\"<enter>"                           "short date format"
 macro index <esc>F     ":set date_format = \"%m/%d at %I:%M %P\"<enter>"               "long date format"
+macro index a "<limit>all\n" "show all messages (undo limit)"
 
 # mailbox
 macro index ot "<change-folder>+t.gummerer-gmail.com/INBOX<enter>"
@@ -130,5 +144,6 @@ macro index oi "<change-folder>+info-tgummerer.com/INBOX<enter>"
 
 # save a decoded copy in ~
 macro index,pager P   "<pipe-message>cat > ~/Desktop/"    "save message as"
+macro index S "<enter-command>unset wait_key<enter><shell-escape>~/.bin/mutt-notmuch-py -G ~/.mail/temporary/search<enter><change-folder>+temporary/search<enter>" "search mail (using notmuch)"
 
 fcc-hook git@vger.kernel.org$ +git
