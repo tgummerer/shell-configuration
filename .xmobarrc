@@ -16,9 +16,10 @@ Config {
 	Run Com "$HOME/.bin/wireless.sh" [] "wifi" 30,
 	Run Com "$HOME/.bin/sound.sh" [] "sound" 30,
 	Run Com "$HOME/.bin/mail.sh" [] "mail" 30,
+	Run Com "$HOME/.bin/battery.sh" [] "battery" 30,
         Run StdinReader
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{[%cpu% @ %cpufreq%] [%memory%] [%swap%] [%eth0%] [%wlan0%] [%wifi%] [%sound%] [%mail%] <fc=DarkSlateGray3>[ %date% ]</fc>   "
+    template = "%StdinReader% }{[%cpu% @ %cpufreq%] [%memory%] [%swap%] [%eth0%] [%wlan0%] [%wifi%] [%sound%] [%mail%] [%battery%] <fc=DarkSlateGray3>[ %date% ]</fc>   "
 }

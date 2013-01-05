@@ -95,6 +95,13 @@ let g:Powerline_symbols = "fancy"
 
 " }}}
 
+" CtrlP {{{
+
+let g:ctrlp_extensions = ['tag']
+let g:ctrlp_cmd = 'CtrlPMixed'
+
+" }}}
+
 " Omni completion {{{
 "set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
 let OmniCpp_NamespaceSearch = 1
@@ -249,7 +256,7 @@ vnoremap <silent> e k
 vnoremap <silent> i l
 vnoremap <silent> j e
 " Easier escaping
-inoremap ne <Esc>
+inoremap hh <Esc>
 
 " Move with usual keys in insert mode by pressing ctrl
 inoremap <C-l> <C-o>l
