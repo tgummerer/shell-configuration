@@ -2,7 +2,7 @@ set PATH "$HOME/lib/shell-configuration/bin" $PATH
 # Environment variables {{{
 
 set BROWSER open
-set XTERM xterm-256color
+set TERM xterm-256color
 
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
