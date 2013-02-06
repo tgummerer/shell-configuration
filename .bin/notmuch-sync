@@ -1,0 +1,8 @@
+#!/bin/bash
+
+notmuch new
+
+# git mailing list
+notmuch tag +git -inbox -- from:git@vger.kernel.org or to:git@vger.kernel.org or cc:git@vger.kernel.org
+
+~/.bin/notmuchsync/notmuchsync -s
