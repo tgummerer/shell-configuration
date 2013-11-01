@@ -40,6 +40,3 @@
 [submodule "emacs.d"]
 	path = emacs.d
 	url = git://github.com/bbatsov/prelude.git
-[submodule "bin/z"]
-	path = bin/z
-	url = git://github.com/rupa/z.git
