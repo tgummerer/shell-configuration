@@ -144,6 +144,5 @@ macro index oi "<change-folder>+info-tgummerer.com/INBOX<enter>"
 
 # save a decoded copy in ~
 macro index,pager P   "<pipe-message>cat > ~/Desktop/"    "save message as"
-macro index S "<enter-command>unset wait_key<enter><shell-escape>~/.bin/mutt-notmuch-py -G ~/.mail/temporary/search<enter><change-folder>+temporary/search<enter>" "search mail (using notmuch)"
 
 fcc-hook git@vger.kernel.org$ +git

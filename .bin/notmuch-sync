@@ -3,6 +3,10 @@
 notmuch new
 
 # git mailing list
-notmuch tag +git -inbox -- from:git@vger.kernel.org or to:git@vger.kernel.org or cc:git@vger.kernel.org
-
-~/.bin/notmuchsync/notmuchsync -s
+notmuch tag +git +list -inbox -- from:git@vger.kernel.org or to:git@vger.kernel.org or cc:git@vger.kernel.org
+notmuch tag +notmuch +list -inbox -- from:notmuch@notmuchmail.org or to:notmuch@notmuchmail.org or cc:notmuch@notmuchmail.org
+notmuch tag +littlegeniuz -- to:littlegeniuz@gmail.com or cc:littlegeniuz@gmail.com
+notmuch tag +tgummerer -- to:t.gummerer@gmail.com or cc:t.gummerer@gmail.com
+notmuch tag +unibz -- from:*unibz.it
+notmuch tag -inbox +invisiblegoon -- to:tgummerer+invisiblegoon@gmail.com
+notmuch tag +bup +list -inbox -- to:bup-list@googlegroups.com or cc bup-list@googlegroups.com

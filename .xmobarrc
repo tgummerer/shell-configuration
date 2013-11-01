@@ -1,25 +1,24 @@
 Config {
     font = "xft:DejaVu Sans Mono Bold:size=10:antialias=true",
-    bgColor = "black",
+    bgColor = "#3F3F3F",
     fgColor = "lightskyblue",
-    position = Top,
+    position = Static { xpos = 0 , ypos = 0, width = 1600, height = 16 },
     commands = [
         Run Cpu ["-L","15","-H","50","--normal","aquamarine2","--high","chocolate1"] 10,
 	Run CpuFreq ["-t", "<cpu0>"] 10,
         Run Memory ["-t","Mem: <usedratio>%","-H","4096","-L","0","-h","chocolate1","-n","aquamarine2"] 10,
         Run Swap ["-t","Swap: <usedratio>%","-H","1024","-L","0","-h","chocolate1","-n","aquamarine2"] 10,
-        Run Network "eth0" ["-H","50","-L","0","--normal","aquamarine2","--high","chocolate1"] 10,
-        Run Network "wlan0" ["-H","50","-L","0","--normal","aquamarine2","--high","chocolate1"] 10,
+        Run Network "enp2s0" ["-H","50","-L","0","--normal","aquamarine2","--high","chocolate1"] 10,
+        Run Network "wlp3s0" ["-H","50","-L","0","--normal","aquamarine2","--high","chocolate1"] 10,
 	Run Date "%a %b %_d %Y" "date" 360 ,
 	Run Date "%H:%M:%S" "time" 10 ,
         Run Date "%a %b %_d %l:%M" "date" 10,
 	Run Com "$HOME/.bin/wireless.sh" [] "wifi" 30,
 	Run Com "$HOME/.bin/sound.sh" [] "sound" 30,
-	Run Com "$HOME/.bin/mail.sh" [] "mail" 30,
 	Run Com "$HOME/.bin/battery.sh" [] "battery" 30,
         Run StdinReader
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{[%cpu% @ %cpufreq%] [%memory%] [%swap%] [%eth0%] [%wlan0%] [%wifi%] [%sound%] [%mail%] [%battery%] <fc=DarkSlateGray3>[ %date% ]</fc>   "
+    template = "%StdinReader% }{[%cpu% @ %cpufreq%] [%memory%] [%swap%] [%enp2s0%] [%wlp3s0%] [%wifi%] [%sound%] [%battery%] <fc=DarkSlateGray3>[ %date% ]</fc>   "
 }

@@ -34,3 +34,12 @@
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "gnome-terminal-solarized"]
+	path = gnome-terminal-solarized
+	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+[submodule "emacs.d"]
+	path = emacs.d
+	url = git://github.com/bbatsov/prelude.git
+[submodule "bin/z"]
+	path = bin/z
+	url = git://github.com/rupa/z.git

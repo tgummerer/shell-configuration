@@ -3,37 +3,14 @@
 	email = t.gummerer@gmail.com
 
 [core]
-	editor = vim
+	editor = emacsclient -t
+	pager = less -F -X
 
 [alias]
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
-
-	root = rev-parse --show-toplevel
-
-	graft = cherry-pick -x
-
-	ci = commit
-	cm = commit -m
-
-	d = diff
-	di = diff --cached
-
-	co = checkout
-	id = rev-parse
-
-	unstage = reset HEAD
-	uns = reset HEAD
-
-	currentbranch = !git symbolic-ref HEAD 2>/dev/null || git describe --tags --exact-match HEAD
-
-	fo = fetch origin
-	fu = fetch upstream
-
-	po = push origin
-	lg = log --graph --pretty=format:'%Cred%h%Creset \n              -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit \n              --date=relative
-	; lo = pull origin
+	ack = -c color.grep.filename='bold green' -c color.grep.match='black yellow' grep --break --heading -n
 
 [push]
 	default = current
@@ -65,3 +42,12 @@
 
 [interactive]
 	singlekey = true
+	
+[rerere]
+	enabled = true
+
+[sendemail]
+	smtpserver = /usr/bin/msmtp
+
+[help]
+	autocorrect = 1

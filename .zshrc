@@ -1,40 +1,56 @@
-# Path to your oh-my-zsh configuration.
 ZSH=~/lib/oh-my-zsh
 
+export TERM=xterm-256color
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+export PERL5LIB=~/share/perl5/site_perl/
+
 export ZSH_THEME="tgummerer"
 
-# Set Path
-PATH=/sw/bin:/opt/local/bin:~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
+PATH=/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/:/home/tommy/.gem/ruby/2.0.0/bin:~/dev/exports64/drmemory/bin64/:~/.cabal/bin/:~/.bin/:/sw/bin:/opt/local/bin:~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
 
-# Aliases
 alias t='python ~/lib/shell-configuration/tools/t/t.py --task-dir ~/tasks --list tasks'
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+alias f='find . | grep'
+alias fx='find . -type f | xargs grep'
 
-# Comment this out to disable weekly auto-update checks
+alias g='git'
+alias gl='git log --oneline --graph --decorate --all'
+alias gs='git status -s'
+alias gc='git commit'
+alias gcp='git commit -pv'
+alias gm='git commit -m'
+alias ga='git add -A -p'
+alias gg='git grep'
+alias grc='git rebase --continue'
+
+alias m="make -j6"
+alias m0="make -j6 O=0"
+alias mt="make -j6 test"
+alias mt0="make -j6 O=0 test"
+
+alias sd="python manage.py syncdb"
+alias rs="python manage.py runserver"
+
+alias 0="amixer set Master 0%"
+alias 15="amixer set Master 15%"
+alias 25="amixer set Master 25%"
+alias 50="amixer set Master 50%"
+alias 75="amixer set Master 75%"
+alias 100="amixer set Master 100%"
+
+alias e="emacsclient -c &"
+alias et="emacsclient -t"
+
+export EDITOR="emacsclient -t"
+
 DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want disable red dots displayed while waiting for completion
-# DISABLE_COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git svn)
+plugins=(gitfast mvn archlinux battery colemak systemctl)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+. ~/lib/shell-configuration/bin/z/z.sh
+
+fortune | ponysay
