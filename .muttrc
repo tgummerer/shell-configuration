@@ -5,7 +5,7 @@ set header_cache	= ~/.mutt/cache/headers
 set mailcap_path        = ~/.mutt/mailcap                       # entrys for filetypes
 set signature           = ~/.mutt/sig                           # my signature file
 set tmpdir              = ~/.mutt/temp                          # where to keep temp files
-set editor              = "vim +/^$ +:s/^$/\\\\r\\\\r/ +:noh -c 'normal! k' -c 'set nolist' -c 'redraw'" # use vim
+set editor              = "emacsclient -nw"
 set print_command       = /usr/bin/enscript                     # print with enscript
 
 # address book

@@ -46,8 +46,10 @@
 [rerere]
 	enabled = true
 
-[sendemail]
-	smtpserver = /usr/bin/msmtp
+# [sendemail]
+# 	smtpserver = /usr/bin/msmtp
 
 [help]
 	autocorrect = 1
+[fetch]
+	recurseSubmodules = yes

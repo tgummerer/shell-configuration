@@ -9,4 +9,6 @@ notmuch tag +littlegeniuz -- to:littlegeniuz@gmail.com or cc:littlegeniuz@gmail.
 notmuch tag +tgummerer -- to:t.gummerer@gmail.com or cc:t.gummerer@gmail.com
 notmuch tag +unibz -- from:*unibz.it
 notmuch tag -inbox +invisiblegoon -- to:tgummerer+invisiblegoon@gmail.com
-notmuch tag +bup +list -inbox -- to:bup-list@googlegroups.com or cc bup-list@googlegroups.com
+notmuch tag +eudyptula -inbox -- from:little@eudyptula-challenge.org or to:little@eudyptula-challenge.org
+notmuch tag +kernelnewbies -inbox -- to:kernelnewbies@kernelnewbies.org or cc:kernelnewbies@kernelnewbies.org
+notmuch tag +suthesis -- to:henrik.bostrom@dsv.su.se or cc:henrik.bostrom@dsv.su.se or from:henrik.bostrom@dsv.su.se or to:isak-kar@dsv.su.se or cc:isak-kar@dsv.su.se or from:isak-kar@dsv.su.se

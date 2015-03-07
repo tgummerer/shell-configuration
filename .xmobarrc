@@ -13,9 +13,9 @@ Config {
 	Run Date "%a %b %_d %Y" "date" 360 ,
 	Run Date "%H:%M:%S" "time" 10 ,
         Run Date "%a %b %_d %l:%M" "date" 10,
-	Run Com "$HOME/.bin/wireless.sh" [] "wifi" 30,
-	Run Com "$HOME/.bin/sound.sh" [] "sound" 30,
-	Run Com "$HOME/.bin/battery.sh" [] "battery" 30,
+	Run Com "/home/tommy/.bin/wireless.sh" [] "wifi" 30,
+	Run Com "/home/tommy/.bin/sound.sh" [] "sound" 30,
+	Run Com "/home/tommy/.bin/battery.sh" [] "battery" 30,
         Run StdinReader
     ],
     sepChar = "%",

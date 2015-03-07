@@ -11,6 +11,7 @@ import XMonad.Layout.Grid
 import XMonad.Layout.Magnifier
 import XMonad.Layout.TabBarDecoration
 import XMonad.Layout.NoBorders
+import Xmonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog hiding (shorten)
 import XMonad.Actions.CycleWS
@@ -108,6 +109,7 @@ myManageHook = composeAll
 
 -- Status bars and logging
 myLogHook h = do
+  ewmhDesktopsLogHook
   dynamicLogWithPP $ oxyPP h 
   updatePointer (Relative (1/20) (1/20))
  
