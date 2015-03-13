@@ -39,4 +39,4 @@
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
 [submodule "emacs.d"]
 	path = emacs.d
-	url = git://github.com/bbatsov/prelude.git
+	url = git://github.com/tgummerer/prelude.git
