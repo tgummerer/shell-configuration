@@ -84,9 +84,13 @@ set forward_quote                                               # include messag
 mailboxes +info-tgummerer.com/INBOX \
 	  +t.gummerer-gmail.com/INBOX \
 	  +t.gummerer-gmail.com/git \
-	  +t.gummerer-gmail.com/sent \
-	  +t.gummerer-gmail.com/drafts \
+	  +t.gummerer-gmail.com/btrfs \
+	  +t.gummerer-gmail.com/kernelnewbies \
+	  +t.gummerer-gmail.com/servo \
+	  +t.gummerer-gmail.com/eudyptula-challenge \
+	  +t.gummerer-gmail.com/CoreOS \
 	  +littlegeniuz-gmail.com/INBOX \
+	  +t.gummerer-gmail.com \
 	  +temporary/search
 
 set mbox = "+t.gummerer-gmail.com/archive"

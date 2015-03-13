@@ -7,9 +7,6 @@ set sidebar_delim       = '|'
 set sidebar_visible     = yes
 set sidebar_width       = 24
 
-# colors
-color sidebar_new color221 color233
-
 # bindings
 bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
