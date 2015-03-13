@@ -8,7 +8,7 @@ export PERL5LIB=~/share/perl5/site_perl/
 
 export ZSH_THEME="tgummerer"
 
-PATH=~/dev/bin:~/dev/go_appengine:~/bin:~/dev/julia/julia-f0e428b145/bin/:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/:/home/tommy/.gem/ruby/2.0.0/bin:~/dev/exports64/drmemory/bin64/:~/.cabal/bin/:~/.bin/:/sw/bin:/opt/local/bin:~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
+PATH=~/dev/go/bin:~/dev/go_appengine:~/bin:~/dev/julia/julia-f0e428b145/bin/:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/:/home/tommy/.gem/ruby/2.0.0/bin:~/dev/exports64/drmemory/bin64/:~/.cabal/bin/:~/.bin/:/sw/bin:/opt/local/bin:~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
 PATH=/usr/local/sicstus4.3.1/bin:$PATH
 
 export GOPATH=/home/tommy/dev/
@@ -75,3 +75,25 @@ source '/home/tommy/dev/google-cloud-sdk/completion.zsh.inc'
 
 alias goapp=~/dev/google-cloud-sdk/platform/google_appengine/goapp
 export CLOUDSDK_PYTHON=python2
+
+x-copy-region-as-kill () {
+	zle copy-region-as-kill
+	print -rn $CUTBUFFER | xsel -i
+}
+zle -N x-copy-region-as-kill
+x-kill-region () {
+	zle kill-region
+	print -rn $CUTBUFFER | xsel -i
+}
+zle -N x-kill-region
+x-yank () {
+	CUTBUFFER=$(xsel -o -p </dev/null)
+	zle yank
+}
+
+zle -N x-yank
+bindkey -e '\eW' x-copy-region-as-kill
+bindkey -e '^W' x-kill-region
+bindkey -e '^Y' x-yank
+bindkey -e '^N' history-search-forward
+bindkey -e '^P' history-search-backward
