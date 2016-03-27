@@ -240,21 +240,9 @@ nnoremap <silent> zk O<Esc>
 " some plugins
 nnoremap ; :
 " Up and down are more logical with g..
-nnoremap <silent> e gk
-nnoremap <silent> n gj
-nnoremap <silent> i l
-nnoremap <silent> u i
-nnoremap <silent> l u
-nnoremap <silent> j e
-nnoremap <silent> k n
-nnoremap <C-w>n <C-w>j
-nnoremap <C-w>e <C-w>k
-nnoremap <C-w>i <C-w>l
+nnoremap <silent> k gk
+nnoremap <silent> j gj
 
-vnoremap <silent> n j
-vnoremap <silent> e k
-vnoremap <silent> i l
-vnoremap <silent> j e
 " Easier escaping
 inoremap hh <Esc>
 

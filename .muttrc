@@ -32,10 +32,11 @@ set thorough_search                                             # strip headers 
 
 # index options
 set sort                = threads                               # like gmail
-set sort_aux            = reverse-last-date-received            # like gmail
+set sort_aux            = reverse-date            # like gmail
 set uncollapse_jump                                             # don't collapse on an unread message
 set sort_re                                                     # thread based on regex
 set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
 
 # pager options
 set pager_index_lines   = 10                                    # number of index lines to show
@@ -55,11 +56,15 @@ alternates t.gummerer@gmail.com littlegeniuz@gmail.com info@tgummerer.com
 # formats
 set date_format         = "%m/%d"
 set index_format        = "[%Z]  %D  %-20.20F  %s"
+#set index_format = "%4C %Z %{%b %d %R} %-15.15L (%4l) %s"
 set status_format       = "-%r- %v ---[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>- (%P) ---"
 set alias_format        = "%4n %t %-20a  %r"
 
 # composing mail
 set realname            = "Thomas Gummerer"                     # who am i?
+set reverse_realname
+set from ="t.gummerer@gmail.com"
+set use_from=yes
 set envelope_from                                               # which from?
 set sig_dashes                                                  # dashes before my sig... sweet
 set edit_headers                                                # show headers when composing
@@ -84,13 +89,12 @@ set forward_quote                                               # include messag
 mailboxes +info-tgummerer.com/INBOX \
 	  +t.gummerer-gmail.com/INBOX \
 	  +t.gummerer-gmail.com/git \
-	  +t.gummerer-gmail.com/btrfs \
 	  +t.gummerer-gmail.com/kernelnewbies \
 	  +t.gummerer-gmail.com/servo \
 	  +t.gummerer-gmail.com/eudyptula-challenge \
-	  +t.gummerer-gmail.com/CoreOS \
+	  +t.gummerer-gmail.com/bazel \
+	  +t.gummerer-gmail.com/buck \
 	  +littlegeniuz-gmail.com/INBOX \
-	  +t.gummerer-gmail.com \
 	  +temporary/search
 
 set mbox = "+t.gummerer-gmail.com/archive"
@@ -147,6 +151,8 @@ macro index ol "<change-folder>+littlegeniuz-gmail.com/INBOX<enter>"
 macro index oi "<change-folder>+info-tgummerer.com/INBOX<enter>"
 
 # save a decoded copy in ~
-macro index,pager P   "<pipe-message>cat > ~/Desktop/"    "save message as"
+macro index,pager P   "<pipe-message>cat > ~/work/git/"    "save message as"
 
 fcc-hook git@vger.kernel.org$ +git
+
+send-hook . "my_hdr From: Thomas Gummerer <t.gummerer@gmail.com>"

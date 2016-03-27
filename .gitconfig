@@ -12,6 +12,9 @@
 	remotes = remote -v
 	ack = -c color.grep.filename='bold green' -c color.grep.match='black yellow' grep --break --heading -n
 
+[grep]
+	fallbackToNoIndex = true
+
 [push]
 	default = current
 

@@ -8,10 +8,15 @@ export PERL5LIB=~/share/perl5/site_perl/
 
 export ZSH_THEME="tgummerer"
 
-PATH=~/dev/go/bin:~/dev/go_appengine:~/bin:~/dev/julia/julia-f0e428b145/bin/:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/:/home/tommy/.gem/ruby/2.0.0/bin:~/dev/exports64/drmemory/bin64/:~/.cabal/bin/:~/.bin/:/sw/bin:/opt/local/bin:~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
-PATH=/usr/local/sicstus4.3.1/bin:$PATH
-
 export GOPATH=/home/tommy/dev/
+
+PATH=/home/tommy/dev/src/camlistore.org/bin:~/dev/go/bin:~/dev/go_appengine:~/bin:~/dev/julia/julia-f0e428b145/bin/:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/:/home/tommy/.gem/ruby/2.2.0/bin:~/dev/exports64/drmemory/bin64/:~/.cabal/bin/:~/.bin/:/sw/bin:/opt/local/bin:~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
+PATH=/usr/local/sicstus4.3.1/bin:$PATH
+PATH=$GOPATH/bin:$PATH
+PATH=/home/tommy/dev/bazel/output:$PATH
+PATH=/home/tommy/dev/infer/infer/bin:$PATH
+PATH=/home/tommy/.local/bin/:$PATH
+export PATH
 
 alias t='python ~/lib/shell-configuration/tools/t/t.py --task-dir ~/tasks --list tasks'
 
@@ -52,6 +57,9 @@ alias et="emacsclient -t"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
+alias open='xdg-open'
+alias fuck='$(thefuck $(fc -ln -1))'
+
 export EDITOR="emacsclient -t"
 
 export LD_LIBRARY_PATH='/usr/local/lib'
@@ -65,7 +73,7 @@ source $ZSH/oh-my-zsh.sh
 
 . ~/lib/shell-configuration/bin/z/z.sh
 
-fortune | ponysay
+fortune | cowsay -s -f $(ls /usr/share/cows/ | shuf -n1)
 
 # The next line updates PATH for the Google Cloud SDK.
 source '/home/tommy/dev/google-cloud-sdk/path.zsh.inc'
@@ -97,3 +105,8 @@ bindkey -e '^W' x-kill-region
 bindkey -e '^Y' x-yank
 bindkey -e '^N' history-search-forward
 bindkey -e '^P' history-search-backward
+
+# OPAM configuration
+. /home/tommy/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+export ANDROID_SDK=/opt/android-sdk

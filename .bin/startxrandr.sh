@@ -1,3 +1,3 @@
 #!/bin/sh
 xrandr --auto
-xrandr --auto --output DP-2 --mode 1680x1050 --right-of LVDS-1
+xrandr --auto --output HDMI1 --mode 1680x1050 --right-of eDP1
