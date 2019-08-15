@@ -5,12 +5,17 @@
 [core]
 	editor = emacsclient -t
 	pager = less -F -X
+	commitGraph = true
+
+[gc]
+	writeCommitGraph = true
 
 [alias]
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
 	ack = -c color.grep.filename='bold green' -c color.grep.match='black yellow' grep --break --heading -n
+	git-commit-summary = show -s --date=format:%Y-%m-%d --pretty='commit %h (\"%s\", %ad)'
 
 [grep]
 	fallbackToNoIndex = true
@@ -49,6 +54,11 @@
 [rerere]
 	enabled = true
 
+[rebase]
+	autosquash = true
+	autostash = true
+	useBuiltin = true
+
 # [sendemail]
 # 	smtpserver = /usr/bin/msmtp
 
@@ -56,3 +66,18 @@
 	autocorrect = 1
 [fetch]
 	recurseSubmodules = yes
+[transfer]
+	fsckobjects = true
+[filter "bug"]
+	process = rot13-filter.pl bug.log clean smudge delay
+	required = true
+[advice]
+	ignoredHook = false
+[test "full"]
+	command = make -j12 test
+[test "default"]
+	onFailure = mplayer ~/Downloads/Sad_Trombone-Joe_Lamb-665429450.mp3
+[sendemail]
+	confirm = auto
+[protocol]
+	version = 2

@@ -3,9 +3,10 @@
 ###
 
 # settings
-set sidebar_delim       = '|'
 set sidebar_visible     = yes
 set sidebar_width       = 24
+set sidebar_short_path  = yes # abbreviate folder names
+set sidebar_format      = "%B%?F? [%F]?%* %?N?%N/?%S"
 
 # bindings
 bind index,pager <down>   sidebar-next
