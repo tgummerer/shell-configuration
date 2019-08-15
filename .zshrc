@@ -8,7 +8,7 @@ export PERL5LIB=~/share/perl5/site_perl/
 
 export ZSH_THEME="tgummerer"
 
-export GOPATH=/home/tommy/dev/
+export GOPATH=/home/tgummerer/dev/
 
 PATH=/home/tommy/dev/src/camlistore.org/bin:~/dev/go/bin:~/dev/go_appengine:~/bin:~/dev/julia/julia-f0e428b145/bin/:/opt/android-sdk/tools/:/opt/android-sdk/platform-tools/:/home/tommy/.gem/ruby/2.2.0/bin:~/dev/exports64/drmemory/bin64/:~/.cabal/bin/:~/.bin/:/sw/bin:/opt/local/bin:~/Applications/android-sdk-mac_x86/platform-tools:~/Applications/android-ndk-r6b:$PATH
 PATH=/usr/local/sicstus4.3.1/bin:$PATH
@@ -23,17 +23,15 @@ alias t='python ~/lib/shell-configuration/tools/t/t.py --task-dir ~/tasks --list
 alias f='find . | grep'
 alias fx='find . -type f | xargs grep'
 
-alias ssh='mosh'
-
 alias g='git'
 alias gl='git log --oneline --graph --decorate --all'
 alias gs='git status -s'
 alias gc='git commit'
-alias gcp='git commit -pv'
-alias gm='git commit -m'
 alias ga='git add -A -p'
 alias gg='git ack'
 alias grc='git rebase --continue'
+alias gcne='git commit --amend --no-edit'
+alias gpf='git push --force-with-lease'
 
 alias m="make -j12"
 alias m0="make -j12 O=0"
@@ -110,3 +108,9 @@ bindkey -e '^P' history-search-backward
 . /home/tommy/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 export ANDROID_SDK=/opt/android-sdk
+
+eval $(ssh-agent)
+
+export GO111MODULE=on
+export GOPROXY=off
+export GOFLAGS=-mod=vendor

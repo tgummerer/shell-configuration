@@ -84,6 +84,8 @@ color index         yellow          red             "~v~(~D)"                   
 #color index         green           default         "~S"                       # superseded messages
 #color index         red             default         "~T"                       # tagged messages
 #color index         brightred       red             "~="                       # duplicated messages
+color index         green            default         "~C mention@noreply.github.com"                  # mentions
+color index         yellow            default        "~C team_mention@noreply.github.com"             # team mentions
 
 # message headers ------------------------------------------------------
 
