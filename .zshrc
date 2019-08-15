@@ -16,9 +16,8 @@ PATH=$GOPATH/bin:$PATH
 PATH=/home/tommy/dev/bazel/output:$PATH
 PATH=/home/tommy/dev/infer/infer/bin:$PATH
 PATH=/home/tommy/.local/bin/:$PATH
+PATH=/usr/lib/ccache/bin/:$PATH
 export PATH
-
-alias t='python ~/lib/shell-configuration/tools/t/t.py --task-dir ~/tasks --list tasks'
 
 alias f='find . | grep'
 alias fx='find . -type f | xargs grep'
@@ -29,6 +28,8 @@ alias g='git'
 alias gl='git log --oneline --graph --decorate --all'
 alias gs='git status -s'
 alias gc='git commit'
+alias gcne='git commit --amend --no-edit'
+alias gpf='git push --force-with-lease'
 alias gcp='git commit -pv'
 alias gm='git commit -m'
 alias ga='git add -A -p'
@@ -40,6 +41,17 @@ alias m0="make -j12 O=0"
 alias mt="make -j12 test"
 alias mt0="make -j12 O=0 test"
 alias smi="sudo make -j12 install"
+
+function t {
+	if test $# = 0
+	then
+		git test run --test=full HEAD
+	else
+		test_num=$1
+		shift
+		make -j12 && (cd t && "./t$test_num-"* "$@")
+	fi
+}
 
 alias sd="python manage.py syncdb"
 alias rs="python manage.py runserver"
@@ -75,15 +87,6 @@ source $ZSH/oh-my-zsh.sh
 
 fortune | cowsay -s -f $(ls /usr/share/cows/ | shuf -n1)
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/tommy/dev/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables bash completion for gcloud.
-source '/home/tommy/dev/google-cloud-sdk/completion.zsh.inc'
-
-alias goapp=~/dev/google-cloud-sdk/platform/google_appengine/goapp
-export CLOUDSDK_PYTHON=python2
-
 x-copy-region-as-kill () {
 	zle copy-region-as-kill
 	print -rn $CUTBUFFER | xsel -i
@@ -110,3 +113,59 @@ bindkey -e '^P' history-search-backward
 . /home/tommy/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 export ANDROID_SDK=/opt/android-sdk
+
+source $HOME/.cargo/env
+
+function worktree-list () {
+	git for-each-ref --sort=committerdate \
+	    $(g worktree list --porcelain | grep branch | sed 's/branch //') \
+	    --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset)|%(color:red)%(objectname:short)%(color:reset)|%(contents:subject)|%(authorname)|(%(color:green)%(committerdate:relative)%(color:reset))' |
+	column -ts '|'
+}
+
+function chpwd_profiles() {
+    local profile context
+    local -i reexecute
+
+    context=":chpwd:profiles:$PWD"
+    zstyle -s "$context" profile profile || profile='default'
+    zstyle -T "$context" re-execute && reexecute=1 || reexecute=0
+
+    if (( ${+parameters[CHPWD_PROFILE]} == 0 )); then
+        typeset -g CHPWD_PROFILE
+        local CHPWD_PROFILES_INIT=1
+        (( ${+functions[chpwd_profiles_init]} )) && chpwd_profiles_init
+    elif [[ $profile != $CHPWD_PROFILE ]]; then
+        (( ${+functions[chpwd_leave_profile_$CHPWD_PROFILE]} )) \
+            && chpwd_leave_profile_${CHPWD_PROFILE}
+    fi  
+    if (( reexecute )) || [[ $profile != $CHPWD_PROFILE ]]; then
+        (( ${+functions[chpwd_profile_$profile]} )) && chpwd_profile_${profile}
+    fi  
+
+    CHPWD_PROFILE="${profile}"
+    return 0
+}
+# Add the chpwd_profiles() function to the list called by chpwd()!
+chpwd_functions=( ${chpwd_functions} chpwd_profiles )
+
+zstyle ':chpwd:profiles:/home/tommy/work/git(|/|/*)' profile git
+
+export DEFAULT_PATH=$PATH
+
+chpwd_profile_git() {
+    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+    print "chpwd(): Switching to profile: $profile"
+
+    export PATH=$PATH:/home/tommy/work/git/meta
+}
+
+chpwd_profile_default() {
+    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+    print "chpwd(): Switching to profile: $profile"
+
+    export PATH=$DEFAULT_PATH
+}
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
