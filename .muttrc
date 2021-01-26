@@ -3,6 +3,8 @@ set folder		= ~/mail
 set alias_file          = ~/.mutt/alias                         # alias file
 set header_cache	= ~/.mutt/cache/headers
 set message_cachedir    = ~/.mutt/caches/bodies
+set maildir_header_cache_verify = no
+set read_inc            = 0
 set mailcap_path        = ~/.mutt/mailcap
 set tmpdir              = ~/.mutt/temp 
 set editor              = "emacsclient -nw"
@@ -136,6 +138,8 @@ macro index       \CR   "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<ent
 macro index       B     "<limit>~b "                                                         "search message bodies"
 macro index       I     "<change-folder>!<enter>"                                            "go to Inbox"
 macro pager       \Cu   "|urlview<enter>"                                                    "call urlview to extract URLs out of a message"
+macro index .a "<tag-prefix-cond><save-message>=github/notifications_archive\n<sync-mailbox>"
+macro index .g "<tag-prefix-cond><save-message>=gmail/git_archive\n<sync-mailbox>"
 
 macro index a "<limit>all\n" "show all messages (undo limit)"
 
@@ -152,4 +156,4 @@ fcc-hook git@vger.kernel.org$ +gmail/git
 
 send-hook . "my_hdr From: Thomas Gummerer <t.gummerer@gmail.com>"
 
-set sendmail="/usr/local/bin/msmtp"
+set sendmail="/usr/bin/msmtp"

@@ -15,15 +15,19 @@ PATH=/usr/local/sicstus4.3.1/bin:$PATH
 PATH=$GOPATH/bin:$PATH
 PATH=/home/tommy/dev/bazel/output:$PATH
 PATH=/home/tommy/dev/infer/infer/bin:$PATH
-PATH=/home/tommy/.local/bin/:$PATH
-PATH=/usr/lib/ccache/bin/:$PATH
+PATH=/home/tommy/.local/bin:$PATH
+PATH=/usr/lib/ccache:$PATH
+PATH=~/libexec/git-core:$PATH
 export PATH
+
+. $HOME/.asdf/asdf.sh
 
 alias f='find . | grep'
 alias fx='find . -type f | xargs grep'
 
 alias g='git'
-alias gl='git log --oneline --graph --decorate --all'
+alias gl='git log --oneline --graph --decorate'
+alias gla='git log --oneline --graph --decorate --all'
 alias gs='git status -s'
 alias gc='git commit'
 alias gcne='git commit --amend --no-edit'
@@ -34,7 +38,7 @@ alias grc='git rebase --continue'
 
 alias m="make -j12"
 alias m0="make -j12 O=0"
-alias mt="make -j12 test"
+alias mt="git test run"
 alias mt0="make -j12 O=0 test"
 alias smi="sudo make -j12 install"
 
@@ -49,6 +53,11 @@ function t {
 	fi
 }
 
+function wta {
+	git worktree add -b tg/"$1" ../"$1"
+	cd ../"$1"
+}
+
 alias sd="python manage.py syncdb"
 alias rs="python manage.py runserver"
 
@@ -60,7 +69,9 @@ alias 75="amixer set Master 75%"
 alias 100="amixer set Master 100%"
 
 alias e="emacsclient -c &"
-alias et="emacsclient -t"
+alias et="emacsclient -c"
+alias en="emacsclient -n"
+alias xen="xargs emacsclient -n"
 
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
@@ -68,7 +79,7 @@ alias pbpaste='xsel --clipboard --output'
 alias open='xdg-open'
 alias fuck='$(thefuck $(fc -ln -1))'
 
-export EDITOR="emacsclient -t"
+export EDITOR="emacsclient -c"
 
 export LD_LIBRARY_PATH='/usr/local/lib'
 export LD_RUN_PATH='/usr/local/lib'
@@ -112,7 +123,7 @@ export ANDROID_SDK=/opt/android-sdk
 
 eval $(ssh-agent)
 
-export GO111MODULE=on
+export GO111MODULE=auto
 export GOPROXY=off
 export GOFLAGS=-mod=vendor
 
@@ -138,10 +149,10 @@ function chpwd_profiles() {
     elif [[ $profile != $CHPWD_PROFILE ]]; then
         (( ${+functions[chpwd_leave_profile_$CHPWD_PROFILE]} )) \
             && chpwd_leave_profile_${CHPWD_PROFILE}
-    fi  
+    fi
     if (( reexecute )) || [[ $profile != $CHPWD_PROFILE ]]; then
         (( ${+functions[chpwd_profile_$profile]} )) && chpwd_profile_${profile}
-    fi  
+    fi
 
     CHPWD_PROFILE="${profile}"
     return 0
@@ -149,15 +160,47 @@ function chpwd_profiles() {
 # Add the chpwd_profiles() function to the list called by chpwd()!
 chpwd_functions=( ${chpwd_functions} chpwd_profiles )
 
-zstyle ':chpwd:profiles:/home/tommy/work/git(|/|/*)' profile git
+zstyle ':chpwd:profiles:/home/tgummerer/work/git(|/|/*)' profile git
+zstyle ':chpwd:profiles:/home/tgummerer/gh/git(|/|/*)' profile git
+zstyle ':chpwd:profiles:/home/tgummerer/gh/github(|/|/*)' profile github
 
 export DEFAULT_PATH=$PATH
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/tgummerer/.zshrc'
+
+ssh-add -k
+export PATH=/home/tgummerer/gh/awssume/master/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
+
+export MALLOC_CHECK_=3
+export MALLOC_PERTURB_=$(($RANDOM % 255 + 1))
+
+eval "$(rbenv init -)"
+export PATH=/home/tgummerer/gh/awssume/master/bin:$PATH
+source $HOME/.cargo/env
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/tgummerer/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+. /home/tgummerer/work/git/master/contrib/completion/git-completion.zsh
+
+export SKIP_LINUX_SETUP=true
 
 chpwd_profile_git() {
     [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
     print "chpwd(): Switching to profile: $profile"
 
-    export PATH=$PATH:/home/tommy/work/git/meta
+    export PATH=$PATH:/home/tgummerer/work/git/meta
+}
+
+chpwd_profile_github() {
+    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+    print "chpwd(): Switching to profile: $profile"
+
+    export PATH=/home/tgummerer/github-bin:$PATH
 }
 
 chpwd_profile_default() {
