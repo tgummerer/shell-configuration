@@ -87,12 +87,9 @@
 	guessRemote = true
 [branch]
 	sort = -authordate
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [pull]
 	rebase = false
 [credential]
 	credentialStore = gpg
+[github]
+	user = tgummerer

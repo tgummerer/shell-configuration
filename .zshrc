@@ -209,3 +209,6 @@ chpwd_profile_default() {
 
     export PATH=$DEFAULT_PATH
 }
+
+# NixOS
+export SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
